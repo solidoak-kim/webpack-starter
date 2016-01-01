@@ -1,0 +1,42 @@
+{
+  "name": "webpack-react-es6",
+  "version": "0.0.1",
+  "description": "webpack starter with react, stylus, jasmine (karma runner) and babel",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start",
+    "build": "npm run _build:js && npm run _build:css",
+    "build:prod": "npm run _clean && npm run _build:prod:js && npm run _build:prod:css",
+    "build:watch": "npm run _build:watch:js & npm run _build:watch:css",
+    "_build:js": "webpack -d --progress --colors --display-error-details",
+    "_build:css": "stylus -m stylus/app.styl -o dist/app.css",
+    "_build:watch:js" : "webpack -d --watch --progress --colors --display-error-details",
+    "_build:watch:css": "stylus -m -w stylus/app.styl -o dist/app.css",
+    "_build:prod:js": "webpack -p --progress --colors --display-error-details",
+    "_build:prod:css": "stylus -c stylus/app.styl -o dist/app.css",
+    "_clean": "rm -f dist/*"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^0.14.5",
+    "react-dom": "^0.14.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.26",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "eslint": "^1.10.3",
+    "eslint-config-standard": "^4.4.0",
+    "eslint-loader": "^1.1.1",
+    "eslint-plugin-standard": "^1.3.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.16",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.2",
+    "karma-webpack": "^1.7.0",
+    "phantomjs": "^1.9.19",
+    "stylus": "^0.53.0",
+    "webpack": "^1.12.9"
+  }
+}
